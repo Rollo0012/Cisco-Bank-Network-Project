@@ -1,2 +1,104 @@
 # Cisco-Bank-Network-Project
 Enterprise Bank Network designed and simulated in Cisco Packet Tracer with multiple departments, switches, routers, servers, wireless devices, and redundant network connectivity.
+## Project Overview
+
+This project involves designing and implementing a robust and scalable Network  for organization that specializes in banking and insurance services. The building assigned for their operations spans four floor, each floor housing multiple departments, as detailed below.
+
+<img src= "https://github.com/kasirajanwork/Project-Bank-Network-System/blob/main/bank-network.png"/>
+
+## Case Study Requirements
+
+
+- **Network Hierarchical Design**: The network must follow a hierarchical design, ensuring scalability, manageability, and performance.
+- **Simulation**: Cisco Packet Tracer was used to simulate the design and implementation.
+- **Routing Protocol**: OSPF (Open Shortest Path First) will be configured to advertise routes.
+- **Wireless Connectivity**: Each department should have wireless access to accommodate mobile and non-wired devices.
+- **Dynamic IP Allocation**: A dedicated DHCP server will dynamically assign IP addresses to hosts across all departments.
+- **VLAN Segmentation**: Each department is to be segmented into its own VLAN, ensuring network isolation and improved security.
+- **Server Setup**: HTTP, DHCP, and Email servers will be deployed to handle internal communication and services.
+- **Remote Access**: Secure Shell (SSH) must be configured on all routers to enable secure remote login.
+- **Port Security**: Port security must be implemented on switches using sticky MAC and shutdown violation mode to secure access points.
+- **Basic Configuration**: Standard device configurations will include hostname settings, password encryption, banners, and disabling DNS lookup.
+- **Inter-VLAN Routing**: Routing between VLANs will be handled by multilayer switches configured with Switch Virtual Interfaces (SVIs).
+
+## Network Topology
+
+The network topology is structured hierarchically across four floors, with each floor hosting different departments as detailed in the table below:
+
+### Floor-wise Department Layout:
+
+| **Floor**     | **Departments**         | **No. of PCs** | **No. of Printers** | **No. of Servers** |
+|---------------|-------------------------|----------------|---------------------|--------------------|
+| First Floor   | Management, Research, HR | 20 per dept.   | 4 per dept.         | -                  |
+| Second Floor  | Marketing, Accounting, Finance | 20 per dept. | 4 per dept. | - |
+| Third Floor   | Logistics, Customer Care, Guest Area | 20 each (40 for Guest) | 4 each (2 for Guest) | - |
+| Fourth Floor  | Administration, ICT, Server Room | 20 each (2 admin PCs in Server Room) | 2 each | 3 (DHCP, HTTP, Email) |
+
+### VLAN Assignments:
+
+Each department is assigned its own VLAN to ensure network segmentation:
+
+| **VLAN ID** | **Department**        | **Subnet**             | **IP Range**                | **Broadcast Address** |
+|-------------|-----------------------|------------------------|-----------------------------|-----------------------|
+| 10          | Management            | 192.168.10.0/26         | 192.168.10.1 – 192.168.10.62 | 192.168.10.63         |
+| 20          | Research              | 192.168.10.64/26        | 192.168.10.65 – 192.168.10.126 | 192.168.10.127       |
+| 30          | HR                    | 192.168.10.128/26       | 192.168.10.129 – 192.168.10.190 | 192.168.10.191       |
+| 40          | Marketing             | 192.168.10.192/26       | 192.168.10.193 – 192.168.10.254 | 192.168.10.255       |
+| 50          | Accounting            | 192.168.11.0/26         | 192.168.11.1 – 192.168.11.62 | 192.168.11.63         |
+| 60          | Finance               | 192.168.11.64/26        | 192.168.11.65 – 192.168.11.126 | 192.168.11.127       |
+| 70          | Logistics             | 192.168.11.128/26       | 192.168.11.129 – 192.168.11.190 | 192.168.11.191       |
+| 80          | Customer Care         | 192.168.11.192/26       | 192.168.11.193 – 192.168.11.254 | 192.168.11.255       |
+| 90          | Guest Area            | 192.168.12.0/26         | 192.168.12.1 – 192.168.12.62 | 192.168.12.63         |
+| 100         | Admin                 | 192.168.12.64/26        | 192.168.12.65 – 192.168.12.126 | 192.168.12.127       |
+| 110         | ICT                   | 192.168.12.128/26       | 192.168.12.129 – 192.168.12.190 | 192.168.12.191       |
+| 120         | Server Room           | 192.168.12.192/26       | 192.168.12.193 – 192.168.12.254 | 192.168.12.255       |
+
+### IP Addressing and Subnetting:
+
+The base network address is 192.168.10.0, and subnetting has been done based on the number of hosts required per department. Each department has been allocated a separate subnet with the correct subnet mask to accommodate all hosts (wired and wireless devices). Below is the addressing scheme for each department.
+
+- **Management (VLAN 10)**: 192.168.10.0/26, usable IPs: 192.168.10.1 – 192.168.10.62
+- **Research (VLAN 20)**: 192.168.10.64/26, usable IPs: 192.168.10.65 – 192.168.10.126
+- **HR (VLAN 30)**: 192.168.10.128/26, usable IPs: 192.168.10.129 – 192.168.10.190
+- **And so on…**
+
+### Network Implementation
+
+1. **VLAN Configuration**: Each department is assigned a unique VLAN. Switch ports are configured and assigned to their respective VLANs.
+2. **IP Addressing**: Hosts are assigned dynamic IP addresses via DHCP, with the server located on the fourth floor in the server room.
+3. **OSPF Configuration**: OSPF is used as the routing protocol for all subnets. OSPF ensures dynamic route advertisement across the network.
+4. **SSH**: Secure remote access is enabled through SSH configuration on all routers.
+5. **Port Security**: Implemented on switch ports to prevent unauthorized devices from accessing the network. Sticky MAC addresses are used to dynamically learn the MAC addresses, and the violation mode is set to "shutdown."
+6. **Wireless Network**: Wireless Access Points are deployed in each department, allowing seamless connectivity for mobile devices.
+
+### Device Configurations:
+
+- **Routers**: Each router is configured with hostname, OSPF routing, SSH for remote management, and basic security settings.
+- **Switches**: VLANs, port security, and switchport settings are configured on each switch to manage the wired network.
+- **Servers**: DHCP, HTTP, and Email services are configured to manage dynamic IP allocation, internal web services, and communication across the company.
+
+### Testing and Verification:
+
+To ensure the network is operating as expected, various testing methods were employed:
+
+- **Ping Test**: Communication between devices across different VLANs was tested using ping.
+- **DHCP Test**: Devices were checked to verify they could automatically obtain IP addresses from the DHCP server.
+- **SSH Test**: Verified that SSH was working properly by remotely logging into routers.
+- **Port Security Test**: Attempts to connect unauthorized devices resulted in port shutdown as expected.
+
+## Technologies and Features Used:
+
+- **Cisco Packet Tracer** for simulation.
+- **Hierarchical Network Design**.
+- **OSPF Routing**.
+- **VLAN Configuration and Inter-VLAN Routing**.
+- **DHCP for Dynamic IP Allocation**.
+- **SSH for Secure Remote Management**.
+- **Switchport Security**.
+- **Wireless Networks** (WLAN with Access Points).
+- **Testing and Troubleshooting** using Cisco tools.
+
+<img src= "https://github.com/kasirajanwork/Project-Bank-Network-System/blob/main/bank-network-cisco-packet-tracer.png"/>
+
+
+---
