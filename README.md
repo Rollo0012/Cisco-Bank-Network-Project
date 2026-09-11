@@ -4,12 +4,12 @@ Enterprise Bank Network designed and simulated in Cisco Packet Tracer with multi
 
 This project involves designing and implementing a robust and scalable Network  for organization that specializes in banking and insurance services. The building assigned for their operations spans four floor, each floor housing multiple departments, as detailed below.
 
-<img src= "https://github.com/kasirajanwork/Project-Bank-Network-System/blob/main/bank-network.png"/>
+<img src= "https://github.bank-network.png"/>
 
 ## Case Study Requirements
 
 
-- **Network Hierarchical Design**: The network must follow a hierarchical design, ensuring scalability, manageability, and performance.
+- **Network Hierarchical Design**: The network must follow a hierarchical design, ensuring scalabbank-network.pngility, manageability, and performance.
 - **Simulation**: Cisco Packet Tracer was used to simulate the design and implementation.
 - **Routing Protocol**: OSPF (Open Shortest Path First) will be configured to advertise routes.
 - **Wireless Connectivity**: Each department should have wireless access to accommodate mobile and non-wired devices.
