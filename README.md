@@ -4,7 +4,7 @@ Enterprise Bank Network designed and simulated in Cisco Packet Tracer with multi
 
 This project involves designing and implementing a robust and scalable Network  for organization that specializes in banking and insurance services. The building assigned for their operations spans four floor, each floor housing multiple departments, as detailed below.
 
-<img src= "https://github.bank-network.png"/>
+<img src= "https://github.com/Rollo0012/Cisco-Bank-Network-Project/commit/fe917faf538ecc5e17fd62578b1f7535680556df"/>
 
 ## Case Study Requirements
 
